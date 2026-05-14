@@ -1,5 +1,6 @@
 plugins {
-    id 'java'
+    id 'java-library'
+    id 'io.qameta.allure' version '2.12.0'
 }
 
 group = 'msl.qa'
@@ -9,11 +10,57 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+def restAssuredVersion = "6.0.0",
+    selenideVersion = "7.14.0",
+    allureVersion = "2.32.0",
+    junitVersion = "5.14.3",
+    slf4jVersion = "2.0.17"
+
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
+        frameworks {
+            junit5 { //название фреймворка
+                adapterVersion.set(allureVersion) //версия интеграции фреймворка и Allure
+            }
+        }
+    }
 }
 
-test {
+dependencies {
+    testImplementation platform("org.junit:junit-bom:$junitVersion")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation "com.codeborne:selenide:$selenideVersion"
+    testImplementation "io.qameta.allure:allure-selenide:$allureVersion"
+    testImplementation "io.rest-assured:rest-assured:$restAssuredVersion"
+    testImplementation "io.rest-assured:json-schema-validator:$restAssuredVersion"
+    testImplementation "io.qameta.allure:allure-rest-assured:$allureVersion"
+    testImplementation 'io.appium:java-client:10.1.1'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.42.0'
+    testImplementation "net.datafaker:datafaker:2.5.4"
+    testImplementation "tools.jackson.core:jackson-databind:3.1.2"
+    testImplementation "org.assertj:assertj-core:3.27.7"
+    testImplementation "org.slf4j:slf4j-simple:$slf4jVersion"
+
+// !!! don't work without it (Gradle 8.14.3 + Java 21) !!!
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+configurations.testRuntimeClasspath {
+    exclude group: 'com.fasterxml.jackson.core'
+}
+
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 }
