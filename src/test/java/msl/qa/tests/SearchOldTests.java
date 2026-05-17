@@ -1,7 +1,6 @@
 package msl.qa.tests;
 
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -14,14 +13,14 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 
-public class SearchTestsOld {
+public class SearchOldTests {
   /*
   Could not start a new session.
   Possible causes are invalid address of the remote server or browser start-up failure.
 Host info: host: 'DESKTOP-VSRD44A', ip: '192.168.0.17'
    */
   @Test
-  void successfulSearchTest() throws InterruptedException, MalformedURLException {
+  void successfulSearchTest() throws InterruptedException, MalformedURLException{
 
     DesiredCapabilities caps = new DesiredCapabilities();
 
@@ -30,7 +29,7 @@ Host info: host: 'DESKTOP-VSRD44A', ip: '192.168.0.17'
     caps.setCapability("browserstack.key", "EzCqTygq41dh7kqwamet");
 
     // Set URL of the application under test
-    caps.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
+    caps.setCapability("app", "bs://sample.app");
 
     // Specify device and os_version for testing
     caps.setCapability("device", "Samsung Galaxy S22 Ultra");

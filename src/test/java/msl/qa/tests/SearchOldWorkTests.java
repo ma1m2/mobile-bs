@@ -1,27 +1,29 @@
 package msl.qa.tests;
 
+import com.codeborne.selenide.Configuration;
 import io.appium.java_client.android.AndroidDriver;
+import msl.qa.drivers.BrowserstackDriver;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.WebElement;
 import io.appium.java_client.AppiumBy;
+
+import javax.annotation.Nonnull;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SearchTestsWithDeepSeek {
-/*  Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure.
-Host info: host: 'DESKTOP-VSRD44A', ip: '192.168.0.17'
-org.openqa.selenium.SessionNotCreatedException: Could not start a new session.
-Possible causes are invalid address of the remote server or browser start-up failure.*/
+public class SearchOldWorkTests{
 
   @Test
   void successfulSearchTest() throws Exception {
-
     MutableCapabilities caps = new MutableCapabilities();
 
     // BrowserStack options
@@ -31,6 +33,7 @@ Possible causes are invalid address of the remote server or browser start-up fai
     bstackOptions.put("projectName", "First Java Project");
     bstackOptions.put("buildName", "browserstack-build-1");
     bstackOptions.put("sessionName", "first_test");
+    bstackOptions.put("appProfiling", "true");
 
     caps.setCapability("bstack:options", bstackOptions);
 
@@ -38,9 +41,8 @@ Possible causes are invalid address of the remote server or browser start-up fai
     caps.setCapability("platformName", "Android");
 
     // Appium capabilities с ПУБЛИЧНЫМ приложением Wikipedia
-    caps.setCapability("appium:app", "bs://9fg0rt302be241e6524ebc67253ecdee266343");
-    // ИЛИ используйте прямой URL:
-    // caps.setCapability("appium:app", "https://github.com/cloudgrey-io/appium-demo/raw/master/apps/WikipediaSample.apk");
+    caps.setCapability("appium:app", "bs://sample.app");
+    // ИЛИ используйте прямой URL github
     caps.setCapability("appium:deviceName", "Samsung Galaxy S22 Ultra");
     caps.setCapability("appium:platformVersion", "12.0");
     caps.setCapability("appium:automationName", "UiAutomator2");
@@ -76,11 +78,13 @@ Possible causes are invalid address of the remote server or browser start-up fai
       Thread.sleep(5000);
 
       List<WebElement> allProductsName = driver.findElements(
-              AppiumBy.className("android.widget.TextView"));
+              //AppiumBy.className("android.widget.TextView"));
+              AppiumBy.id("org.wikipedia.alpha:id/page_list_item_title"));
       assert (allProductsName.size() > 0);
 
     } finally {
       driver.quit();
     }
+
   }
 }
