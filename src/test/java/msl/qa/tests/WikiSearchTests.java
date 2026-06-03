@@ -1,9 +1,9 @@
 package msl.qa.tests;
 
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.appium.java_client.AppiumBy.id;
@@ -27,21 +27,20 @@ public class WikiSearchTests  extends TestBase{
   }
 
   @Test
-  void findJavaSearchTest(){
+  void openArticleInResultSearchTest(){
 
     step("Type search", () -> {
       $(id("org.wikipedia.alpha:id/search_container")).click();
-      $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Java");
+      $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Kotlin");
     });
 
     step("Open first article of list", () -> {
-      //List<SelenideElement> list = $$(id("org.wikipedia.alpha:id/page_list_item_title")).stream().toList();
       $$(id("org.wikipedia.alpha:id/page_list_item_image")).stream().findFirst().get().click();
     });
 
-/*    step("Verify content found", () -> {
-      $(id("pcs-edit-section-title-description")).shouldHave(Condition.text("Island and region in Indonesia"));
-    });*/
+    step("Verify content found", () -> {
+      $(id("pcs-edit-section-title-description")).shouldHave(text("General-purpose programming language"));
+    });
 
   }
 }

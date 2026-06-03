@@ -2,6 +2,8 @@ package msl.qa.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
+import msl.qa.config.BsConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +15,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BrowserstackDriver implements WebDriverProvider {
+
+  private final BsConfig cfg = ConfigFactory.create(BsConfig.class, System.getProperties());
+
   @Override
   @Nonnull
   public WebDriver createDriver(@Nonnull Capabilities capabilities) {
@@ -20,11 +25,11 @@ public class BrowserstackDriver implements WebDriverProvider {
 
     // BrowserStack options
     Map<String, Object> bstackOptions = new HashMap<>();
-    bstackOptions.put("userName", "svetlanamazhayki_cEelZU");
-    bstackOptions.put("accessKey", "EzCqTygq41dh7kqwamet");
+    bstackOptions.put("userName", cfg.userName());
+    bstackOptions.put("accessKey", cfg.accessKey());
     bstackOptions.put("projectName", "First Java Project");
     bstackOptions.put("buildName", "browserstack-build-1");
-    bstackOptions.put("sessionName", "third_test");
+    bstackOptions.put("sessionName", "first_test");
     bstackOptions.put("appProfiling", "true");
 
     caps.setCapability("bstack:options", bstackOptions);
@@ -33,7 +38,7 @@ public class BrowserstackDriver implements WebDriverProvider {
     caps.setCapability("platformName", "Android");
 
     // Appium capabilities с ПУБЛИЧНЫМ приложением Wikipedia
-    caps.setCapability("appium:app", "bs://sample.app");
+    caps.setCapability("appium:app", cfg.app());
     // ИЛИ используйте прямой URL github
     caps.setCapability("appium:deviceName", "Samsung Galaxy S22 Ultra");
     caps.setCapability("appium:platformVersion", "12.0");
@@ -41,7 +46,7 @@ public class BrowserstackDriver implements WebDriverProvider {
 
     try {
       return new AndroidDriver(
-              new URL("https://hub.browserstack.com/wd/hub"), caps);
+              new URL(cfg.url()), caps);
     } catch (MalformedURLException e) {
       throw new RuntimeException(e);
     }
