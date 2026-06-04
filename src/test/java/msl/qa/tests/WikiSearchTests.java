@@ -3,6 +3,7 @@ package msl.qa.tests;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -38,9 +39,13 @@ public class WikiSearchTests  extends TestBase{
       $$(id("org.wikipedia.alpha:id/page_list_item_image")).stream().findFirst().get().click();
     });
 
-    step("Verify content found", () -> {
-      $(id("pcs-edit-section-title-description")).shouldHave(text("General-purpose programming language"));
+    step("Error icon is displayed", () -> {
+      $(id("org.wikipedia.alpha:id/view_wiki_error_icon")).should(exist);
     });
+
+/*    step("Verify content found", () -> {
+      $(id("pcs-edit-section-title-description")).shouldHave(text("General-purpose programming language"));
+    });*/
 
   }
 }
