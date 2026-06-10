@@ -29,12 +29,15 @@ public class RealDriver implements WebDriverProvider {
 
     options.setAutomationName(ANDROID_UIAUTOMATOR2)
             .setPlatformName(ANDROID)
-            .setPlatformVersion("13")
-            .setDeviceName("Redmi Note 11 Pro 5G")
+            .setPlatformVersion(cfg.platformVersion())
+            .setDeviceName(cfg.deviceName())
+            .setUdid(cfg.udid())
             .setApp(getAppPath())
-            .setAppPackage("org.wikipedia.alpha")
-            .setAppActivity("org.wikipedia.main.MainActivity")
-            .setNoReset(false); //Сбрасывает приложение к состоянию "после первой установки"
+            .setAppPackage(cfg.appPackage())
+            .setAppActivity(cfg.appActivity())
+            .setNoReset(false)//Сбрасывает приложение к состоянию "после первой установки"
+            .setSkipServerInstallation(true)//Пропускает установку APK-файлов сервера Appium
+            .setAutoGrantPermissions(true);
 
     return new AndroidDriver(cfg.url(), options);
   }

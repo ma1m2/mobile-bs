@@ -5,13 +5,16 @@ import org.aeonbits.owner.Config;
 import java.net.URL;
 
 @Config.Sources({
-        "classpath:config/emulator.properties"
+        "classpath:config/real.properties"
 })
 public interface RealConfig extends Config{
 
   @Key("appium_server_url")
   @DefaultValue("http://localhost:4723/wd/hub")
   URL url();
+
+  @Key("udid")
+  String udid();
 
   @Key("app")
   String app();

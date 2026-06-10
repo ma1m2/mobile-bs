@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
 
+
 public class OnboardingScreen {
   private ElementsCollection content = $$(".android.widget.TextView");
   private SelenideElement forwardBtn = $(".android.widget.Button");

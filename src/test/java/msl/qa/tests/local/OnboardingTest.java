@@ -5,7 +5,7 @@ import msl.qa.tests.TestBase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 
-//@EnabledIfSystemProperty(named = "deviceHost", matches = "emulator|real")
+@EnabledIfSystemProperty(named = "deviceHost", matches = "emulator|real")
 public class OnboardingTest extends TestBase {
 
   OnboardingScreen os = new OnboardingScreen();
