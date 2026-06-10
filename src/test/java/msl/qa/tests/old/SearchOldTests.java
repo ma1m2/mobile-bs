@@ -1,7 +1,6 @@
-package msl.qa.tests;
+package msl.qa.tests.old;
 
 import io.appium.java_client.AppiumBy;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;

@@ -5,6 +5,7 @@ build/
 !**/src/test/**/build/
 notifications/config.json
 notifications/draft.txt
+src/test/resources/apps/*.apk
 
 ### IntelliJ IDEA ###
 .idea/

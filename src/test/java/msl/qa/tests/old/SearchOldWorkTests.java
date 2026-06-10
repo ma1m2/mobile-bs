@@ -1,19 +1,12 @@
-package msl.qa.tests;
+package msl.qa.tests.old;
 
-import com.codeborne.selenide.Configuration;
 import io.appium.java_client.android.AndroidDriver;
-import msl.qa.drivers.BrowserstackDriver;
-import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.WebElement;
 import io.appium.java_client.AppiumBy;
 
-import javax.annotation.Nonnull;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;

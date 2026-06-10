@@ -3,9 +3,9 @@ package msl.qa.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:config/bs.properties"
+        "classpath:config/browserstack.properties"
 })
-public interface BsConfig extends Config{
+public interface BrowserstackConfig extends Config{
 
   @Key("userName")
   String userName();

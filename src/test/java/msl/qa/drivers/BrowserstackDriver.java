@@ -2,7 +2,7 @@ package msl.qa.drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
-import msl.qa.config.BsConfig;
+import msl.qa.config.BrowserstackConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class BrowserstackDriver implements WebDriverProvider {
 
-  private final BsConfig cfg = ConfigFactory.create(BsConfig.class, System.getProperties());
+  private final BrowserstackConfig cfg = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
 
   @Override
   @Nonnull

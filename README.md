@@ -1,7 +1,21 @@
 **Запустить Appium Server**  
-`appium server --base-path /wd/hub`  
+```bash
+appium server --base-path /wd/hub
+```  
 **Запустить эмулятор**  
-`emulator -avd Pixel_4 -gpu swiftshader_indirect`  
+```bash
+emulator -avd Pixel_4 -gpu swiftshader_indirect
+```  
 **Проверить запущенные устройства**  
-`adb devices`  
+```bash
+adb devices
+```  
+**Для запуска на разных стендах передать из командной строки:**  
+```bash
+./gradlew clean test -DdeviceHost=browserstack
+./gradlew clean test -DdeviceHost=emulator
+./gradlew clean test -DdeviceHost=real
+```
+
+
 

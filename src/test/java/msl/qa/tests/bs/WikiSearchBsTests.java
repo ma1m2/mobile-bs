@@ -1,16 +1,18 @@
-package msl.qa.tests;
+package msl.qa.tests.bs;
 
+import msl.qa.tests.TestBase;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
-public class WikiSearchTests  extends TestBase{
+@EnabledIfSystemProperty(named = "deviceHost", matches = "browserstack")
+public class WikiSearchBsTests extends TestBase {
 
   @Test
   void successfulSearchTest(){
@@ -42,10 +44,6 @@ public class WikiSearchTests  extends TestBase{
     step("Error icon is displayed", () -> {
       $(id("org.wikipedia.alpha:id/view_wiki_error_icon")).should(exist);
     });
-
-/*    step("Verify content found", () -> {
-      $(id("pcs-edit-section-title-description")).shouldHave(text("General-purpose programming language"));
-    });*/
 
   }
 }
