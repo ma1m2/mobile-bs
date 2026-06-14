@@ -14,7 +14,7 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 
-@EnabledIfSystemProperty(named = "deviceHost", matches = "emulator|real")
+@EnabledIfSystemProperty(named = "deviceHost", matches = "browserstack")
 public class SearchOldTests {
   @Test
   void successfulSearchTest() throws InterruptedException, MalformedURLException{

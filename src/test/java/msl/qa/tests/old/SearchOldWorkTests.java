@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@EnabledIfSystemProperty(named = "deviceHost", matches = "emulator|real")
+@EnabledIfSystemProperty(named = "deviceHost", matches = "browserstack")
 public class SearchOldWorkTests{
 
   @Test

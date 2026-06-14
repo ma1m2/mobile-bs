@@ -66,3 +66,12 @@ tasks.withType(Test).configureEach {
         }
     }
 }
+// Новая задача для smoke-тестов
+tasks.register('smokeTest', Test) {
+    description = 'Runs smoke tests'
+    group = 'verification'
+
+    useJUnitPlatform {
+        includeTags 'smoke'
+    }
+}

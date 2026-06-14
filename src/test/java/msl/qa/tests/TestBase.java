@@ -21,7 +21,7 @@ public class TestBase {
 
   @BeforeAll
   public static void setupEnvironment() {
-    deviceHost = System.getProperty("deviceHost", "real");
+    deviceHost = System.getProperty("deviceHost", "emulator");
     Configuration.browser = getDriverClass(deviceHost);
     Configuration.browserSize = null;
     Configuration.timeout = 30000;

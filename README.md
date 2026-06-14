@@ -32,7 +32,18 @@ adb devices
 ./gradlew clean test -DdeviceHost=browserstack
 ./gradlew clean test -DdeviceHost=emulator
 ./gradlew clean test -DdeviceHost=real
-```
+```  
+**Чтобы запустить один конкретный тест**  
+```bash
+./gradlew clean test -DdeviceHost=emulator --tests "msl.qa.tests.local.WikiSearchTest.successfulSearchWithScreenObjectTest"
+```   
+**или (если имя теста уникально)**
+```bash
+./gradlew clean test -DdeviceHost=emulator --tests "*.successfulSearchWithScreenObjectTest"
+```  
+**Для smoke тестов**  
+`./gradlew clean smokeTest -DdeviceHost=emulator`
+
 **Real device**  
 - Настройки > О телефоне > Версия ОС (Build number) > тап 7 раз
 - Настройки > Расширенные настройки > Для разработчиков (Developer options)

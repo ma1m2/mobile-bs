@@ -2,6 +2,7 @@ package msl.qa.tests.local;
 
 import msl.qa.screens.OnboardingScreen;
 import msl.qa.tests.TestBase;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 

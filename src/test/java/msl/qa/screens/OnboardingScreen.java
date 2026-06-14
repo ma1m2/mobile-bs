@@ -12,15 +12,15 @@ import static com.codeborne.selenide.Selenide.$x;
 
 
 public class OnboardingScreen {
-  private ElementsCollection content = $$(".android.widget.TextView");
-  private SelenideElement forwardBtn = $(".android.widget.Button");
-  private SelenideElement nextBtn = $x("//android.view.View[@content-desc=\"Next\"]");
-  private SelenideElement skipBtn = $x("//android.widget.TextView[@text=\"Skip\"]");
+  private final ElementsCollection content = $$(".android.widget.TextView");
+  private final SelenideElement forwardBtn = $(".android.widget.Button");
+  private final SelenideElement nextBtn = $x("//android.view.View[@content-desc=\"Next\"]");
+  private final SelenideElement skipBtn = $x("//android.widget.TextView[@text=\"Skip\"]");
 
-  private String firstScreen = "All the world's knowledge";
-  private String secondScreen = "Data & Privacy";
-  private String thirdScreen = "Read in more than 300 languages";
-  private String fourthScreen = "Follow your curiosity";
+  private final String firstScreen = "All the world's knowledge";
+  private final String secondScreen = "Data & Privacy";
+  private final String thirdScreen = "Read in more than 300 languages";
+  private final String fourthScreen = "Follow your curiosity";
 
   @Step("Go Forward next Onboarding Screen")
   public OnboardingScreen goForwardOnboardingScreen() {
