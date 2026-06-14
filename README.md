@@ -1,4 +1,4 @@
-**Стек используемых технологий**  
+**Стек используемых технологий**
 <p align="center">
 <img width="6%" title="IntelliJ IDEA" src="media/logo/Intelij_IDEA.png">
 <img width="6%" title="Java" src="media/logo/Java.png">
@@ -48,9 +48,10 @@ adb devices
 * Проверять приложение при установке
 
 <a id="movie"></a>
-<img alt="Browserstack" height="25" src="media/logo/Browserstack.png" width="25"/> **Видео выполнения теста c Browserstack**
+<img alt="Browserstack" height="25" src="media/logo/Browserstack.png" width="25"/> **Примеры видео выполнения тестов в Browserstack**
 <p align="center">
-<img title="Browserstack Video" src="media/video/bs.gif" width="250" height="500"  alt="video">   
+<img title="Browserstack Video" src="media/video/bs.gif" width="250" height="500"  alt="video">  <span style="margin-right: 20px;"></span>
+<img title="Browserstack Video" src="media/video/bs-kotlin.gif" width="250" height="500"  alt="video">  
 </p>
 
 

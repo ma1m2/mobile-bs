@@ -1,6 +1,8 @@
 package msl.qa.tests.old;
 
 import io.appium.java_client.android.AndroidDriver;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,16 +15,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@EnabledIfSystemProperty(named = "deviceHost", matches = "emulator|real")
 public class SearchOldWorkTests{
 
-  //@Test
+  @Test
   void successfulSearchTest() throws Exception {
     MutableCapabilities caps = new MutableCapabilities();
 
     // BrowserStack options
     Map<String, Object> bstackOptions = new HashMap<>();
-    bstackOptions.put("userName", "svetlanamazhayki_cEelZU");
-    bstackOptions.put("accessKey", "EzCqTygq41dh7kqwamet");
+    bstackOptions.put("userName", "testikarus_koaKq0");
+    bstackOptions.put("accessKey", "cE78m2zFxvVLGpUm2jdM");
     bstackOptions.put("projectName", "First Java Project");
     bstackOptions.put("buildName", "browserstack-build-1");
     bstackOptions.put("sessionName", "first_test");

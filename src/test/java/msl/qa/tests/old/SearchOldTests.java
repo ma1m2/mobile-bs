@@ -1,6 +1,8 @@
 package msl.qa.tests.old;
 
 import io.appium.java_client.AppiumBy;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -12,20 +14,16 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 
+@EnabledIfSystemProperty(named = "deviceHost", matches = "emulator|real")
 public class SearchOldTests {
-  /*
-  Could not start a new session.
-  Possible causes are invalid address of the remote server or browser start-up failure.
-Host info: host: 'DESKTOP-VSRD44A', ip: '192.168.0.17'
-   */
-  //@Test
+  @Test
   void successfulSearchTest() throws InterruptedException, MalformedURLException{
 
     DesiredCapabilities caps = new DesiredCapabilities();
 
     // Set your access credentials
-    caps.setCapability("browserstack.user", "svetlanamazhayki_cEelZU");
-    caps.setCapability("browserstack.key", "EzCqTygq41dh7kqwamet");
+    caps.setCapability("browserstack.user", "testikarus_koaKq0");
+    caps.setCapability("browserstack.key", "cE78m2zFxvVLGpUm2jdM");
 
     // Set URL of the application under test
     caps.setCapability("app", "bs://sample.app");
