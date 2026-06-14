@@ -1,13 +1,19 @@
 package msl.qa.tests.old;
 
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
+import io.qameta.allure.selenide.AllureSelenide;
+import msl.qa.helpers.Attach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.openqa.selenium.MutableCapabilities;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.WebElement;
-import io.appium.java_client.AppiumBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
 import java.time.Duration;
@@ -15,8 +21,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
+
 @EnabledIfSystemProperty(named = "deviceHost", matches = "browserstack")
 public class SearchOldWorkTests{
+
+  @BeforeEach
+  public void addListenerAndOpen() {
+    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    open();
+  }
 
   @Test
   void successfulSearchTest() throws Exception {
@@ -81,6 +96,14 @@ public class SearchOldWorkTests{
     } finally {
       driver.quit();
     }
+  }
 
+  @AfterEach
+  public void addAttachments() {
+    String sessionId = Selenide.sessionId().toString();
+    Attach.screenshotAs("Last screenshot");
+    Attach.pageSource();
+    closeWebDriver();
+    Attach.addVideo(sessionId);
   }
 }

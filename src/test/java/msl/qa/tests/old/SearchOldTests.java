@@ -16,6 +16,7 @@ import java.util.List;
 
 @EnabledIfSystemProperty(named = "deviceHost", matches = "browserstack")
 public class SearchOldTests {
+
   @Test
   void successfulSearchTest() throws InterruptedException, MalformedURLException{
 
