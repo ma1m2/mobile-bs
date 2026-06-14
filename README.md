@@ -48,10 +48,13 @@ adb devices
 * Проверять приложение при установке
 
 <a id="movie"></a>
-<img alt="Browserstack" height="25" src="media/logo/Browserstack.png" width="25"/> **Примеры видео выполнения тестов в Browserstack**
-<p align="center">
-<img title="Browserstack Video" src="media/video/bs.gif" width="250" height="500"  alt="video">  <span style="margin-right: 20px;"></span>
-<img title="Browserstack Video" src="media/video/bs-kotlin.gif" width="250" height="500"  alt="video">  
-</p>
+<img alt="Browserstack" height="25" src="media/logo/Browserstack.png" width="25"/> **Примеры видео выполнения тестов в Browserstack**  
+<table align="center">
+  <tr>
+    <td align="center"><img title="Browserstack Video" src="media/video/bs.gif" width="250" height="500" alt="video"></td>
+    <td width="40"></td>
+    <td align="center"><img title="Browserstack Video" src="media/video/bs-kotlin.gif" width="250" height="500" alt="video"></td>
+  </tr>
+</table>
 
 
