@@ -196,12 +196,8 @@ ____
 <img title="Telegram" src="media/screen/br-tg-bot.png" width="550">  
 </p>
 
-
-
-
-
 <a id="movie"></a>
-<img alt="Browserstack" height="20" src="media/logo/Browserstack.svg" width="20"/> **BrowserStack Video Examples**  
+## <img alt="Browserstack" height="25" src="media/logo/Browserstack.svg" width="20"/> BrowserStack Video Examples  
 <table align="center">
   <tr>
     <td align="center"><img title="Browserstack Video" src="media/video/bs.gif" width="250" height="500" alt="video"></td>
