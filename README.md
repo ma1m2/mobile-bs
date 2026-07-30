@@ -1,4 +1,4 @@
-# Demo Project for automating mobile tests for the [Wikipedia](https://ru.wikipedia.org/)  application  
+# [Wikipedia](https://ru.wikipedia.org/) Mobile App — Test Automation Demo
 
 <p align="center">
 <a href="https://ru.wikipedia.org/"><img src="media/logo/WikiLogo.png" alt="Wikipedia" ></a>
